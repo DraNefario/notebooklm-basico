@@ -1,5 +1,0 @@
-sentence-transformers
-ollama
-numpy
-python-dotenv
-ruff
