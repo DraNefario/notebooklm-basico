@@ -1,11 +1,11 @@
 import pathlib
-from typing import List
 
-def chunk_text(text: str, size: int = 512, overlap: int = 64) -> List[str]:
+
+def chunk_text(text: str, size: int = 512, overlap: int = 64) -> list[str]:
     toks = text.split()
     out, i = [], 0
     while i < len(toks):
-        out.append(" ".join(toks[i:i+size]))
+        out.append(" ".join(toks[i : i + size]))
         i += max(size - overlap, 1)
     return [chunk for chunk in out if chunk.strip()]
 

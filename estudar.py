@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 NotebookLM simples — RAG na mão.
 Passos: 1) carregar texto, 2) chunkar, 3) embed, 4) armazenar, 5) recuperar, 6) perguntar ao LLM.

@@ -5,12 +5,12 @@ from .llm import ChatClient, criar_llm
 from .store import MemoriaRAG
 
 __all__ = [
-    "Settings",
-    "carregar_settings",
-    "carregar_arquivos",
-    "chunk_text",
-    "Embedder",
     "ChatClient",
-    "criar_llm",
+    "Embedder",
     "MemoriaRAG",
+    "Settings",
+    "carregar_arquivos",
+    "carregar_settings",
+    "chunk_text",
+    "criar_llm",
 ]

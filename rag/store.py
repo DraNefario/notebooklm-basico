@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import List
 
 import numpy as np
 
@@ -7,10 +6,11 @@ import numpy as np
 @dataclass
 class MemoriaRAG:
     """Vetores + chunks em memória"""
-    textos: List[str]
-    vetores: List[List[float]]
 
-    def recuperar(self, vetor_pergunta: List[float], top_k: int = 3) -> List[str]:
+    textos: list[str]
+    vetores: list[list[float]]
+
+    def recuperar(self, vetor_pergunta: list[float], top_k: int = 3) -> list[str]:
         if not self.textos or not self.vetores:
             return []
 

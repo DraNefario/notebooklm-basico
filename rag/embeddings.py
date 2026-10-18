@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import List
 
 from sentence_transformers import SentenceTransformer
 
@@ -14,8 +13,8 @@ class Embedder:
         print(f"Carregando modelo de embeddings '{self.modelo_nome}'...")
         self._model = SentenceTransformer(self.modelo_nome)
 
-    def encode(self, chunks: List[str]) -> List[List[float]]:
+    def encode(self, chunks: list[str]) -> list[list[float]]:
         return self._model.encode(chunks).tolist()
 
-    def encode_one(self, texto: str) -> List[float]:
+    def encode_one(self, texto: str) -> list[float]:
         return self.encode([texto])[0]

@@ -8,6 +8,7 @@ class ChatClient(Protocol):
 class OllamaClient:
     def __init__(self, host: str, model: str):
         from ollama import Client
+
         self._client = Client(host=host)
         self._model = model
 
@@ -26,7 +27,11 @@ class MockClient:
 
 def criar_llm(settings) -> ChatClient:
     if settings.llm_provider == "ollama":
-        return OllamaClient(host=settings.ollama_base_url, model=settings.ollama_chat_model)
+        return OllamaClient(
+            host=settings.ollama_base_url, model=settings.ollama_chat_model
+        )
     if settings.llm_provider == "mock":
         return MockClient()
-    raise ValueError(f"LLM_PROVIDER desconhecido: {settings.llm_provider!r} (use 'ollama' ou 'mock')")
+    raise ValueError(
+        f"LLM_PROVIDER desconhecido: {settings.llm_provider!r} (use 'ollama' ou 'mock')"
+    )
