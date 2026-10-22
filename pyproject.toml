@@ -1,11 +1,21 @@
 [project]
 name = "notebooklm-basico"
 version = "0.1.0"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "numpy>=2.5.4",
     "ollama>=0.6.3",
     "python-dotenv>=1.2.4",
     "ruff>=0.17.1",
     "sentence-transformers>=6.1.0",
+]
+
+[dependency-groups]
+# langchain-community<0.4: o 0.4.x removeu o modulo vertexai que o ragas importa
+# huggingface-hub<2.0: a 2.x quebra o sentence-transformers
+dev = [
+    "ragas>=0.4.3",
+    "langchain-community<0.4",
+    "huggingface-hub>=1.5.0,<2.0",
+    "openai",
 ]
