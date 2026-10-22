@@ -1,0 +1,59 @@
+[
+  {
+    "pergunta": "O que é RAG (Retrieval-Augmented Generation)?",
+    "ground_truth": "RAG é uma técnica que permite que LLMs recuperem e incorporem novas informações de fontes de dados externas. Os LLMs consultam um conjunto de documentos e depois respondem às consultas usando essas informações complementares.",
+    "reference_contexts": [
+      "A geração aumentada por recuperação ( RAG , na sigla em inglês) é uma técnica que permite que grandes modelos de linguagem (LLMs, na sigla em inglês) recuperem e incorporem novas informações de fontes de dados externas. Com a RAG, os LLMs primeiro consultam um conjunto específico de documentos e, em seguida, respondem às consultas do usuário. Esses documentos complementam as informações dos dados de treinamento preexistentes do LLM."
+    ]
+  },
+  {
+    "pergunta": "Como o RAG ajuda a reduzir alucinações da IA?",
+    "ground_truth": "O RAG reduz alucinações ao aprimorar os LLMs incorporando a recuperação de informações antes de gerar respostas, ajudando os modelos a se aterem aos fatos extraídos de fontes confiáveis em vez de depender apenas de dados de treinamento estáticos.",
+    "reference_contexts": [
+      "O RAG aprimora os LLMs incorporando a recuperação de informações antes de gerar respostas. Ao contrário dos LLMs que dependem de dados de treinamento estáticos, o RAG extrai texto relevante de bancos de dados, documentos carregados ou fontes da web. Esse método ajuda a reduzir as alucinações da IA, que fizeram com que chatbots descrevessem políticas que não existem ou recomendassem casos jurídicos inexistentes a advogados que procuram citações para apoiar seus argumentos."
+    ]
+  },
+  {
+    "pergunta": "Em que ano a técnica RAG foi proposta pela primeira vez?",
+    "ground_truth": "A técnica RAG foi proposta pela primeira vez em 2020, em um artigo que descreveu a combinação de um modelo de linguagem paramétrico com uma memória externa não paramétrica acessada por meio de recuperação no momento da inferência.",
+    "reference_contexts": [
+      "A técnica foi proposta pela primeira vez em 2020 e, desde então, tornou-se uma abordagem amplamente adotada em sistemas modernos de IA.",
+      "O termo geração aumentada por recuperação (RAG) foi introduzido em um artigo de 2020 que descreveu a combinação de um modelo de linguagem paramétrico com uma memória externa não paramétrica acessada por meio de recuperação no momento da inferência."
+    ]
+  },
+  {
+    "pergunta": "Quais são os benefícios do RAG em relação a treinar novamente os LLMs?",
+    "ground_truth": "O RAG reduz a necessidade de treinar novamente os LLMs com novos dados, economizando custos computacionais e financeiros. Além disso, permite que os LLMs incluam fontes em suas respostas, proporcionando maior transparência para verificação pelos usuários.",
+    "reference_contexts": [
+      "O RAG também reduz a necessidade de treinar novamente os LLMs com novos dados, economizando custos computacionais e financeiros. Além dos ganhos de eficiência, o RAG também permite que os LLMs incluam fontes em suas respostas, para que os usuários possam verificar as fontes citadas. Isso proporciona maior transparência, pois os usuários podem verificar o conteúdo recuperado para garantir precisão e relevância."
+    ]
+  },
+  {
+    "pergunta": "Como o RAG permite que chatbots acessem dados internos da empresa?",
+    "ground_truth": "O RAG permite que LLMs usem informações específicas do domínio e/ou atualizadas que não estão disponíveis nos dados de treinamento, possibilitando que chatbots baseados em LLM acessem dados internos da empresa ou gerem respostas com base em fontes confiáveis.",
+    "reference_contexts": [
+      "Isso permite que os LLMs usem informações específicas do domínio e/ou atualizadas que não estão disponíveis nos dados de treinamento. Por exemplo, isso permite que chatbots baseados em LLM acessem dados internos da empresa ou gerem respostas com base em fontes confiáveis."
+    ]
+  },
+  {
+    "pergunta": "O que o termo RAG significa e qual foi a contribuição central do artigo de 2020?",
+    "ground_truth": "RAG significa geração aumentada por recuperação (Retrieval-Augmented Generation). A contribuição central do artigo de 2020 foi descrever a combinação de um modelo de linguagem paramétrico com uma memória externa não paramétrica, acessada por meio de recuperação no momento da inferência.",
+    "reference_contexts": [
+      "O termo geração aumentada por recuperação (RAG) foi introduzido em um artigo de 2020 que descreveu a combinação de um modelo de linguagem paramétrico com uma memória externa não paramétrica acessada por meio de recuperação no momento da inferência."
+    ]
+  },
+  {
+    "pergunta": "Como o RAG difere dos LLMs que dependem apenas de dados de treinamento estáticos?",
+    "ground_truth": "Ao contrário dos LLMs que dependem de dados de treinamento estáticos, o RAG extrai texto relevante de bancos de dados, documentos carregados ou fontes da web no momento da consulta, incorporando essas informações antes de gerar respostas.",
+    "reference_contexts": [
+      "O RAG aprimora os LLMs incorporando a recuperação de informações antes de gerar respostas. Ao contrário dos LLMs que dependem de dados de treinamento estáticos, o RAG extrai texto relevante de bancos de dados, documentos carregados ou fontes da web."
+    ]
+  },
+  {
+    "pergunta": "O que a Ars Technica disse sobre o RAG?",
+    "ground_truth": "De acordo com a Ars Technica, o RAG é uma maneira de melhorar o desempenho dos LLMs, essencialmente combinando o processo de LLM com uma pesquisa na web ou outro processo de consulta de documentos para ajudar os LLMs a se aterem aos fatos.",
+    "reference_contexts": [
+      "De acordo com a Ars Technica, \"o RAG é uma maneira de melhorar o desempenho dos LLMs, essencialmente combinando o processo de LLM com uma pesquisa na web ou outro processo de consulta de documentos para ajudar os LLMs a se aterem aos fatos\"."
+    ]
+  }
+]
