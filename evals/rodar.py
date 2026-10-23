@@ -62,6 +62,18 @@ def _criar_judge():
     from openai import AsyncOpenAI
 
     client = AsyncOpenAI(api_key="ollama", base_url=f"{host}/v1")
+
+    # Ollama default trunca saida estruturada; injeta max_tokens em toda chamada
+    class _Completions:
+        def __init__(self, inner):
+            self._inner = inner
+
+        async def create(self, **kwargs):
+            # ragas pode mandar max_tokens proprio; forca espaco para JSON estruturado
+            kwargs["max_tokens"] = 4096
+            return await self._inner.create(**kwargs)
+
+    client.chat.completions = _Completions(client.chat.completions)
     return llm_factory(model, provider="openai", client=client)
 
 
@@ -87,7 +99,9 @@ def _criar_metricas(judge, embeddings, somente_recuperacao=False):
             {
                 "faithfulness": Faithfulness(llm=judge),
                 "answer_relevancy": AnswerRelevancy(llm=judge, embeddings=embeddings),
-                "answer_correctness": AnswerCorrectness(llm=judge, embeddings=embeddings),
+                "answer_correctness": AnswerCorrectness(
+                    llm=judge, embeddings=embeddings
+                ),
                 "noise_sensitivity": NoiseSensitivity(llm=judge),
                 "semantic_similarity": SemanticSimilarity(embeddings=embeddings),
             }
@@ -116,7 +130,8 @@ def _avaliar_metrica(nome, metrica, resultado, tentativas=3):
         try:
             r = metrica.score(**kwargs)
             return float(r.value)
-        except Exception as e:
+        # falha do juiz (openai, instructor, valueerror...) nao pode derrubar o run
+        except Exception as e:  # noqa: BLE001
             eh_rate_limit = "429" in str(e) or "RateLimit" in type(e).__name__
             if eh_rate_limit and tentativa < tentativas - 1:
                 espera = 15 * (tentativa + 1)
@@ -134,8 +149,9 @@ def main():
     parser.add_argument("--somente-recuperacao", action="store_true")
     args = parser.parse_args()
 
-    from rag import NotebookRAG
     from ragas.embeddings import HuggingFaceEmbeddings
+
+    from rag import NotebookRAG
 
     dataset = json.loads(_DATASET.read_text(encoding="utf-8"))
     print(f"Dataset: {len(dataset)} perguntas | top_k={args.top_k}\n")
