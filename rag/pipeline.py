@@ -1,6 +1,5 @@
 import pathlib
 from dataclasses import dataclass
-from typing import List
 
 from .config import Settings, carregar_settings
 from .documents import carregar_arquivos, chunk_text
@@ -21,7 +20,7 @@ Responda de forma direta e educativa, com citacoes [1],[2] das fontes, usando ap
 @dataclass
 class Resposta:
     pergunta: str
-    contextos: List[str]
+    contextos: list[str]
     resposta: str
 
 
@@ -43,11 +42,9 @@ class NotebookRAG:
 
         texto_total = carregar_arquivos(docs_dir)
         chunks = chunk_text(texto_total, size=512, overlap=64)
-        self.memoria = MemoriaRAG(
-            textos=chunks, vetores=self.embedder.encode(chunks)
-        )
+        self.memoria = MemoriaRAG(textos=chunks, vetores=self.embedder.encode(chunks))
 
-    def recuperar(self, pergunta: str, top_k: int | None = None) -> List[str]:
+    def recuperar(self, pergunta: str, top_k: int | None = None) -> list[str]:
         return self.memoria.recuperar(
             self.embedder.encode_one(pergunta), top_k=top_k or self.top_k
         )
